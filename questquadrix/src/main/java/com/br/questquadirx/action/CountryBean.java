@@ -16,7 +16,6 @@ import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 import com.br.questquadirx.dominio.Country;
 import com.br.questquadirx.servico.CountryService;
-import com.br.questquadirx.servico.CountryService;
 import com.br.questquadirx.util.jsf.FacesUtils;
 
 /**
@@ -82,7 +81,7 @@ public class CountryBean extends SpringBeanAutowiringSupport {
 	 * @param event
 	 */
 	public void create() {
-		controller.create(item);
+		//controller.create(item);
 		items = controller.list();
 		item = null;
 	}
@@ -91,13 +90,13 @@ public class CountryBean extends SpringBeanAutowiringSupport {
 	 * @param event
 	 */
 	public void update() {
-		controller.update(item);
+		//controller.update(item);
 		items = controller.list();
 		item = null;
 	}
 
 	public void delete() {
-		controller.delete(item.getId());
+		//controller.delete(item.getId());
 		items = controller.list();
 		item = null;
 	}

@@ -8,12 +8,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
+
 /**
  * @author Michel Risucci
  */
 @Entity
 @Table(name = "country")
-public class Country {
+public class Country  {
 
 	private Long id;
 	private String name;
@@ -40,6 +42,7 @@ public class Country {
 	/**
 	 * @return
 	 */
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
@@ -50,7 +53,7 @@ public class Country {
 	/**
 	 * @param id
 	 */
-	public void setId(Long id) {
+	public void setId(Long id) { //Removido por ser desnecessário com strategia auto generate
 		this.id = id;
 	}
 
