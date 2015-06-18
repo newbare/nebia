@@ -11,49 +11,49 @@ import org.springframework.transaction.annotation.Transactional;
 import com.br.questquadirx.dominio.Country;
 import com.br.questquadirx.repositorio.CountryRepository;
 
-
 /**
  * @author Jefera
  */
 @Named
+public class CountryService {
 
-public class CountryService  {
+	
+	private CountryRepository countryRepository;
 
+	
 	@Inject
-	private CountryRepository repository;
+	public void setCountryRepository(CountryRepository countryRepository) {
+		this.countryRepository = countryRepository;
+		countryRepository.setPersistentClass(Country.class);
+	}
 
 	
 	public List<Country> list() {
-		return repository.listar();
+		return countryRepository.listar();
 	}
 
-	
 	public Country read(Long id) {
-		return repository.buscarPor(id);
+		return countryRepository.buscarPor(id);
 	}
 
-	
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void create(Country country) {
-		repository.inserir(country);
+		countryRepository.inserir(country);
 	}
 
-	
 	@Transactional(propagation = Propagation.REQUIRED)
 	public Country update(Country country) {
-		return repository.alterar(country);
+		return countryRepository.alterar(country);
 	}
 
-	
-	@Transactional(propagation = Propagation.REQUIRED)
-	public void delete(Country country) {
-		repository.excluir(country);
-	}
+	/*
+	 * @Transactional(propagation = Propagation.REQUIRED) public void
+	 * delete(Country country) { repository.excluir(country); }
+	 */
 
-	
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void delete(Long id) {
-		repository.excluirPor(id);
+		countryRepository.excluirPor(id);
 	}
 
 }
